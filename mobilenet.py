@@ -76,7 +76,7 @@ from keras.utils import conv_utils
 from keras.utils.data_utils import get_file
 from keras.engine.topology import get_source_inputs
 from keras.engine import InputSpec
-from keras.applications.imagenet_utils import _obtain_input_shape
+from keras_applications.imagenet_utils import _obtain_input_shape
 from keras.applications.imagenet_utils import decode_predictions
 from keras import backend as K
 
@@ -387,7 +387,7 @@ def MobileNet(input_shape=None,
                                       default_size=224,
                                       min_size=32,
                                       data_format=K.image_data_format(),
-                                      include_top=include_top or weights)
+                                      require_flatten=include_top or weights)
     if K.image_data_format() == 'channels_last':
         row_axis, col_axis = (0, 1)
     else:
